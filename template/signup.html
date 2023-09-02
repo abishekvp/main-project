@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% block title %}SignUp{% endblock title %}
+{% block sign %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" id="username" placeholder="Username">
+        <input type="email" name="email" id="email" placeholder="Email">
+        <select name="role" id="role">
+            <option value="none" selected disabled>Select Role</option>
+            <option value="customer">Buyer</option>
+            <option value="vendor">Seller</option>
+        </select>
+        <input type="password" name="password" id="password" placeholder="Password">
+        <input type="submit" value="SignUp">
+    </form>
+    <a href="signin"><button>SignIn</button></a>
+{% endblock %}
