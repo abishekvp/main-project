@@ -1,0 +1,26 @@
+body{
+    background: #00000093;
+    text-align: center;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+}
+h1{
+    font-size: 30px;
+}
+a{
+    color: #fff;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 0 35%;
+}
+form input[type=submit]{
+    width: 50%;
+    margin: 0 25%;
+}
+.signout_btn{
+    position: absolute;
+    right: 5%;
+}
