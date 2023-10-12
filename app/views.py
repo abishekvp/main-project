@@ -33,10 +33,11 @@ def signin(request):
     elif request.method == 'POST':    
         username = request.POST["username"]
         password = request.POST["password"]
+        if '@' in username:username = User.objects.get(email=username.lower()).username
         user = authenticate(request, username=username, password=password)
         if user:login(request, user)
         else:messages.info(request, 'User not found')
-        return redirect("dashboard")
+        return redirect("signin")
     else:return render(request,'signin.html')
 
 def signout(request):

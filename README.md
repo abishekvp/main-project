@@ -17,6 +17,6 @@ to deactivate the environment
 >env\scripts\deactivate
 
 if only normal host
->env\scripts\activate  &::if environment is not activated to activate <br/>
->python manage.py runserver  &::to run server
+>env\scripts\activate  &::only if environment is not activated <br/>
+>python manage.py runserver  &::to host project
 
