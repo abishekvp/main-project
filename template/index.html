@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
+    <link rel="shortcut icon" href="{% static 'img/django-python-logo.png' %}" type="image/x-icon">
+    
     <title>{% block title %}Django{% endblock title %}</title>
 </head>
 <body>
@@ -25,5 +26,6 @@
     {% block sign %}
     {% endblock %}
     {% endif %}
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
