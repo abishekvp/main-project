@@ -20,4 +20,3 @@ if only normal host
 >env\scripts\activate  &::if environment is not activated to activate
 >python manage.py runserver  &::to run server
 
-
