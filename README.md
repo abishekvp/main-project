@@ -23,10 +23,10 @@ if only normal host
 
 *ne ivlo thooram pandrathuku, python install pantu keela irruka python code aa copy panni paste panntu run pannu*
 
-import os
-os.system("git init")
-os.system("git clone https://github.com/abishekvp/django.git")
-prevdir = os.getcwd()
-os.chdir(os.path.expanduser('django'))
-os.system("pip install -r requirements.txt")
-os.system("python -m manage runserver")
+>import os
+>os.system("git init")
+>os.system("git clone https://github.com/abishekvp/django.git")
+>prevdir = os.getcwd()
+>os.chdir(os.path.expanduser('django'))
+>os.system("pip install -r requirements.txt")
+>os.system("python -m manage runserver")
