@@ -1,6 +1,17 @@
 Note:   &::  -it's a comment
 
 - install python
+create python file and enter the below code
+
+import os
+os.system("git init")
+os.system("git clone https://github.com/abishekvp/django.git")
+prevdir = os.getcwd()
+os.chdir(os.path.expanduser('django'))
+os.system("pip install -r requirements.txt")
+os.system("python -m manage runserver")
+
+and run...
 
 given below commands all work in windows command prompt
 
