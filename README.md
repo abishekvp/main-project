@@ -16,7 +16,7 @@ follow commands in cmd as in project location
 to deactivate the environment
 >env\scripts\deactivate
 
-if only normal host
+for regular host - locally
 >env\scripts\activate  &::only if environment is not activated <br/>
 >python manage.py runserver  &::to host project
 
