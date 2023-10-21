@@ -23,10 +23,11 @@ for regular host - locally
 
 *ne ivlo thooram pandrathuku, python install pantu keela irruka python code aa copy panni paste panntu run pannu*
 
+<pre>
 >import os<br/>
 >try:import requests<br/>
 >except:<br/>
->    <pre>os.system("pip install requests")<br/>
+>    os.system("pip install requests")<br/>
 >    import requests<br/>
 >try:from zipfile import ZipFile<br/>
 >except:<br/>
@@ -55,3 +56,4 @@ for regular host - locally
 >        run_project()<br/>
 >inp = input("Do you have git?\n1.Yes  2.No\nJust enter for Yes (Yes)") or "Yes"<br/>
 >main(inp)<br/>
+</pre>
