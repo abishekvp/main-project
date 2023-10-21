@@ -26,7 +26,7 @@ for regular host - locally
 >import os<br/>
 >try:import requests<br/>
 >except:<br/>
->    os.system("pip install requests")<br/>
+>    <pre>os.system("pip install requests")<br/>
 >    import requests<br/>
 >try:from zipfile import ZipFile<br/>
 >except:<br/>
