@@ -24,36 +24,36 @@ for regular host - locally
 *ne ivlo thooram pandrathuku, python install pantu keela irruka python code aa copy panni paste panntu run pannu*
 
 <pre>
->import os<br/>
->try:import requests<br/>
->except:<br/>
->    os.system("pip install requests")<br/>
->    import requests<br/>
->try:from zipfile import ZipFile<br/>
->except:<br/>
->    os.system("pip install zipfile")<br/>
->    from zipfile import ZipFile<br/>
->def download_file():<br/>
->    url = "https://github.com/abishekvp/django/archive/refs/heads/master.zip"<br/>
->    file = requests.get(url, allow_redirects=True)<br/>
->    open('django.zip', 'wb').write(file.content)<br/>
->    with ZipFile("E:\\Desktop\\Dj-auto\\django.zip", 'r') as zFile:zFile.extractall(path="E:\\Desktop\\Dj-auto\\")<br/>
->    os.rename("django-master","django")<br/>
->    os.remove("E:\\Desktop\\Dj-auto\\django.zip")<br/>
->def git():<br/>
->    os.system("git init")<br/>
->    os.system("git clone https://github.com/abishekvp/django.git")<br/>
->def run_project():<br/>
->    os.chdir(os.path.expanduser('django'))<br/>
->    os.system("pip install -r requirements.txt")<br/>
->    os.system("python -m manage runserver")<br/>
->def main(inp):<br/>
->    if inp=="Yes":<br/>
->        git()<br/>
->        run_project()<br/>
->    else:<br/>
->        download_file()<br/>
->        run_project()<br/>
->inp = input("Do you have git?\n1.Yes  2.No\nJust enter for Yes (Yes)") or "Yes"<br/>
->main(inp)<br/>
+import os
+try:import requests
+except:
+    os.system("pip install requests")
+    import requests
+try:from zipfile import ZipFile
+except:
+    os.system("pip install zipfile")
+    from zipfile import ZipFile
+def download_file():
+    url = "https://github.com/abishekvp/django/archive/refs/heads/master.zip"
+    file = requests.get(url, allow_redirects=True)
+    open('django.zip', 'wb').write(file.content)
+    with ZipFile("E:\\Desktop\\Dj-auto\\django.zip", 'r') as zFile:zFile.extractall(path="E:\\Desktop\\Dj-auto\\")
+    os.rename("django-master","django")
+    os.remove("E:\\Desktop\\Dj-auto\\django.zip")
+def git():
+    os.system("git init")
+    os.system("git clone https://github.com/abishekvp/django.git")
+def run_project():
+    os.chdir(os.path.expanduser('django'))
+    os.system("pip install -r requirements.txt")
+    os.system("python -m manage runserver")
+def main(inp):
+    if inp=="Yes":
+        git()
+        run_project()
+    else:
+        download_file()
+        run_project()
+inp = input("Do you have git?\n1.Yes  2.No\nJust enter for Yes (Yes)") or "Yes"
+main(inp)
 </pre>
