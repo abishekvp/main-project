@@ -5,11 +5,11 @@ from django.contrib.auth.models import User
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
-uri = "mongodb+srv://Abishek:<password>@cluster0.edxis.mongodb.net/?retryWrites=true&w=majority"
+uri = "mongodb+srv://pro_user:rkwyrUiPnjjBsssg@cluster0.edxis.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(uri, server_api=ServerApi('1'))
 
-database = client['main-project']
-db_users = database['users']
+db = client.project_gpa
+db_user = db.user
 
 def index(request):
     if request.user.is_authenticated:return redirect("dashboard")
@@ -27,11 +27,10 @@ def signup(request):
         email = request.POST['email']
         password = request.POST['password']
         role = request.POST['role']
-        if db_users.find_one(filter={'email':email,'password':password}):messages.info(request, 'Username and Email already exists')
-        elif User.objects.filter(username=username).exists():messages.info(request, 'Username already exists')
-        elif User.objects.filter(email=email).exists():messages.info(request, 'Email already exists')
+        if db_user.find_one(filter={'email':email}):messages.info(request, 'Email already exists')
+        elif db_user.find_one(filter={'username':username}):messages.info(request, 'Username already exists')
         else:
-            user = User.objects.create_user(username, email, password)
+            user = db_user.insert_one({"username":username, "email":email, "password":password})
             user = authenticate(request, username=username, password=password)
             login(request, user)
             return redirect("dashboard")

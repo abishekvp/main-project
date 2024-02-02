@@ -2,15 +2,41 @@
 {% block title %}SignUp{% endblock title %}
 {% block sign %}
 <section class="signup">
+    <style>
+        #other_role{
+            display: none;
+        }
+    </style>
     <h1>SignUp</h1>
     <form action="" method="post">
         {% csrf_token %}
         <input type="text" name="username" id="username" placeholder="Username">
         <input type="email" name="email" id="email" placeholder="Email">
         <input type="password" name="password" id="password" placeholder="Password">
+        <select name="role" id="role" onchange="other_role(this.value)">
+            <option disabled selected>Choose your Designation</option>
+            <option value="citizen">Citizen</option>
+            <option value="advocate">Advocate</option>
+            <option value="lawyer">Lawyer</option>
+            <option value="prosecutor">Prosecutor</option>
+            <option value="arbitrator">Arbitrator</option>
+            <option value="mediator">Mediator</option>
+            <option value="notary">Notary</option>
+            <option value="document_writer">Document Writer</option>
+            <option value="other">Other</option>
+        </select>
+        <input type="text" name="other_role" id="other_role" placeholder="If other diesignation PLease Specify">
         <input type="submit" value="SignUp">
     </form>
     Already have an account? then <a href="signin">SignIn</a>
+    <script>
+        function other_role(v){
+            if(v==="other"){
+                alert(v);
+                document.getElementById("other_role").style.display = "block";
+            }
+        }
+    </script>
 </section>
 {% endblock %}
 
