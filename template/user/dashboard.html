@@ -1,0 +1,8 @@
+{% extends '../index.html' %}
+{% block title %}Dashboard{% endblock title %}
+{% block content %}
+<section class="dashboard">
+    <a href="signout" class="signout_btn"><button>SignOut</button></a>
+    <h1>Welcome {{ request.user.username }}</h1>
+</section>
+{% endblock %}
