@@ -1,0 +1,47 @@
+{% extends 'citizen/dashboard.html' %}
+{% block title %}Profile{% endblock title %}
+{% block lawyer_details %}
+<section class="dashboard">
+    <h2>Profile</h2>
+    <input type="text" placeholder="First Name" value="{{request.user.firstname}}"><br>
+    <input type="text" placeholder="Last Name" value="{{request.user.lastname}}"><br>
+    <input type="text" placeholder="Username" value="{{request.user.username}}"><br>
+    <input type="text" placeholder="Email" value="{{request.user.email}}"><br>
+    <input type="tel" placeholder="Contact" value="{{request.user.contact}}"><br>
+    <input type="date" placeholder="DOB"><br>
+    <a href="update_profile"><button>Update Profile</button></a><br>
+    <div class="consult_history">
+        <p>Consultation History</p>
+        <table>
+            <tr>
+                <th>Consultation ID</th>
+                <th>Consultation Date</th>
+                <th>Consultation Time</th>
+                <th>Consultation Type</th>
+                <th>Consultation Status</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>12/12/2020</td>
+                <td>12:00 PM</td>
+                <td>Video</td>
+                <td>Completed</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>12/12/2020</td>
+                <td>12:00 PM</td>
+                <td>Video</td>
+                <td>Completed</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>12/12/2020</td>
+                <td>12:00 PM</td>
+                <td>Video</td>
+                <td>Completed</td>
+            </tr>
+        </table>
+    </div>
+</section>
+{% endblock %}

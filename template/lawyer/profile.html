@@ -1,0 +1,50 @@
+{% extends 'lawyer/dashboard.html' %}
+{% block title %}Profile{% endblock title %}
+{% block dashboard_main %}
+    <section class="profile">
+        <h2>Profile</h2>
+        <label for="f_name">First Name : </label><input type="text" name="f_name" id="f_name" placeholder="First Name" value="{{request.user.firstname}}"><br>
+        <label for="l_name">Last Name : </label><input type="text" name="l_name" id="l_name" placeholder="Last Name" value="{{request.user.lastname}}"><br>
+        <label for="username"> Username : </label><input type="text" name="username" id="username" placeholder="Username" value="{{request.user.username}}"><br>
+        <label for="email">Email : </label><input type="text" name="email" id="email" placeholder="Email" value="{{request.user.email}}"><br>
+        <label for="contact">Contact : </label><input type="tel" name="contact" id="contact" placeholder="Contact" value="{{request.user.contact}}"><br>
+        <label for="dob">DOB : </label><input type="date" name="dob" id="dob" placeholder="DOB" value="{{request.user.dob}}"><br>
+        <label for="expertise">Expertise : </label><input type="text" name="expertise" id="expertise" placeholder="Area of Expertise" value="{{request.user.expert}}"><br>
+        <label for="experience">Experience : </label><input type="number" name="experience" id="experience" placeholder="Experience in years" value="{{request.user.experience}}"><br>
+        <label for="success">Success Record : </label><input type="number" name="success" id="success" placeholder="Success Record Count" value="{{request.user.experience}}"><br>
+        <a href="update_profile"><button>Update Profile</button></a><br>
+        <div class="consult_history">
+            <p>Consultation History</p>
+            <table>
+                <tr>
+                    <th>Consultation ID</th>
+                    <th>Consultation Date</th>
+                    <th>Consultation Time</th>
+                    <th>Consultation Type</th>
+                    <th>Consultation Status</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>12/12/2020</td>
+                    <td>12:00 PM</td>
+                    <td>Video</td>
+                    <td>Completed</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>12/12/2020</td>
+                    <td>12:00 PM</td>
+                    <td>Video</td>
+                    <td>Completed</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>12/12/2020</td>
+                    <td>12:00 PM</td>
+                    <td>Video</td>
+                    <td>Completed</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+{% endblock %}

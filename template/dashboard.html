@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{% block title %}Dashboard{% endblock title %}
+{% block content %}
+<section class="dashboard">
+    <nav>
+        <p>
+            <img src="../../static/img/dp.png" alt="">
+            <span>{{ request.user.username }}</span>
+        </p>
+    </nav>
+    <section class="dashboard_content">
+        <div class="sidenav">
+            {% block sidenav %}
+            {% endblock %}
+        </div>
+        <div class="dashboard_main">
+            {% block dashboard_main %}
+            {% endblock %}
+        </div>
+        <div class="chat_bot">
+            {% csrf_token %}
+            <a href="clear_chat"><button>Clear Chat History</button></a>
+            <div class="chat_screen"></div>
+            <span>
+                <textarea name="messageInput" cols="50" rows="3" placeholder="Type a message..." id="messageInput"></textarea>
+                <button id="send_message" onclick="sendMessage()">Send</button>
+            </span>
+        </div>
+    </section>
+    <script>
+        function sendMessage(){
+            $('.chat_screen').append('<p id="user_mesg">'+$( "#messageInput" ).val()+'</p>');
+            $('#messageInput').val('');
+            $.ajax({
+                type:'POST',
+                url:'/chat_message',
+                data:{
+                    message:$('#messageInput').val(),
+                    csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+                },
+                success: function(){
+                    var reply_message="Reply Message";
+                    $('.chat_screen').append('<p id="bot_mesg">'+reply_message+'</p>'); 
+                    $('#messageInput').val('')
+                }
+            });
+        };
+    </script>
+</section>
+{% endblock %}
