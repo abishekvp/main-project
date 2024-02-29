@@ -13,7 +13,9 @@ url = "mongodb://localhost:27017"
 # url = "mongodb+srv://pro_user:rkwyrUiPnjjBsssg@cluster0.edxis.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(url, server_api=ServerApi('1'))
 
+
 # admin abishek 123
+
 
 db = client.project_gpa
 db_user = db.user
@@ -80,8 +82,9 @@ def signout(request):
     if request.user.is_authenticated:logout(request)
     return redirect('signin')
 
+# https://www.livelaw.in/top-stories
+
 def happenings(request):
-    
     url = 'https://economictimes.indiatimes.com/topic/law-and-order'
     response = requests.get(url)
 
@@ -103,5 +106,32 @@ def happenings(request):
             }
             id+=1
         return render(request, 'happenings.html', {"data":data})
+    else:
+        return HttpResponse("Error in fetching data from the website. Please try again later.")
+    
+def happenings_2(request):
+    url = 'https://www.livelaw.in/top-stories'
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, 'html.parser')
+        contents = soup.find_all('div',class_='grid_page')
+        image = soup.find_all('div',class_='hompage_main_img')
+        data={}
+        id=0
+        for content,img in zip(contents,image):
+            title = content.find('h5')
+            image = img.find('span')
+            image = image.find('img')
+            description = content.find('div',class_="sup_crt_para_mob_hidden")
+            data["content"+str(id)] = {
+                "image":image.get("src"),
+                "title":title.text,
+                "description":description.text
+            }
+            id+=1
+        print(data)
+        return render(request, 'happenings.html', {"data":data})
+        # return render(request, 'happenings.html')
     else:
         return HttpResponse("Error in fetching data from the website. Please try again later.")

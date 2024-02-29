@@ -1,13 +1,11 @@
 {% extends 'citizen/dashboard.html' %}
 {% block title %}Profile{% endblock title %}
-{% block lawyer_details %}
+{% block dashboard_main %}
 <section class="dashboard">
     <h2>Profile</h2>
-    <input type="text" placeholder="First Name" value="{{request.user.firstname}}"><br>
-    <input type="text" placeholder="Last Name" value="{{request.user.lastname}}"><br>
-    <input type="text" placeholder="Username" value="{{request.user.username}}"><br>
-    <input type="text" placeholder="Email" value="{{request.user.email}}"><br>
-    <input type="tel" placeholder="Contact" value="{{request.user.contact}}"><br>
+    <input type="text" placeholder="Username" value="{{ username }}"><br>
+    <input type="text" placeholder="Username" value="{{ email }}"><br>
+    <input type="text" placeholder="Username" value="{{ role }}"><br>
     <input type="date" placeholder="DOB"><br>
     <a href="update_profile"><button>Update Profile</button></a><br>
     <div class="consult_history">

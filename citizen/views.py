@@ -22,7 +22,9 @@ def index(request):
 
 @user_passes_test(is_citizen)
 def profile(request):
-    return render(request, 'citizen/profile.html')
+    user=db_user.find_one({"username":request.user.username})
+    print(user)
+    return render(request, 'citizen/profile.html',{"username":user["username"],"email":user["email"],"role":user["role"]})
 
 @user_passes_test(is_citizen)
 def lawyers(request):
